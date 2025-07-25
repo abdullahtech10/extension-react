@@ -1,0 +1,225 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+    --neutral-900: hsl(227, 75%, 14%);
+    --neutral-800: hsl(226, 25%, 17%);
+    --neutral-700: hsl(225, 23%, 24%);
+    --neutral-600: hsl(226, 11%, 37%);
+    --neutral-300: hsl(0, 0%, 78%);
+    --neutral-200: hsl(217, 61%, 90%);
+    --neutral-100: hsl(0, 0%, 93%);
+    --neutral-0: hsl(200, 60%, 99%);
+
+    /* gradient */
+    --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+    /* red */
+    --red-400: hsl(3, 86%, 64%);
+    --red-500: hsl(3, 71%, 56%);
+    --red-700: hsl(3, 77%, 44%);
+    --logo-color: #1f2937;
+    
+}
+
+.darkmode {
+    --neutral-900: hsl(200, 60%, 99%);
+    --neutral-800: hsl(226, 25%, 17%);
+    --neutral-700: hsl(225, 23%, 24%);
+    --neutral-600: hsl(226, 11%, 37%);
+    --neutral-300: hsl(0, 0%, 78%);
+    --neutral-200: hsl(217, 61%, 90%);
+    --neutral-100: hsl(0, 0%, 93%);
+    --neutral-0: hsl(226, 25%, 17%);
+    color: var(--neutral-900);
+
+    /* gradient */
+    --light-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+    /* --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%); */
+
+    /* red */
+    --red-400: hsl(3, 86%, 64%);
+    --red-500: hsl(3, 71%, 56%);
+    --red-700: hsl(3, 77%, 44%);
+    --logo-color: #f9fafb;
+    --border:none;
+    --hover:hsl(227, 75%, 14%);
+    --filter:brightness(0) invert(1);
+
+}
+
+.body{ 
+    background: var(--light-gradient);
+    height: fit-content;
+    width: 100%;
+ }
+
+.container{
+    max-width: 1100px;
+    margin: 0 auto ;
+    padding-top: 16px;
+    color: var(--neutral-900);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--neutral-0);
+    padding: 0.6rem;
+    margin-bottom: 2.5rem;
+  
+    background: var(--neutral-0);
+    border-radius: 1rem;
+}
+
+nav button {
+    border: none;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+}
+
+
+.sun{
+    display: none;
+}
+
+.darkmode .moon {
+    display: none;
+}
+
+.darkmode .sun {
+    display: block;
+}
+
+.extension-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.extension-header h1 {
+    color: var(--neutral-900);
+}
+
+.extension-header button,
+#remove {
+    border: .8px solid hsl(226, 11%, 37%);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    color: var(--neutral-900);
+    background: var(--neutral-0);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mar{
+    margin-right: 0.6rem;
+}
+
+.extension-header .activ{
+    background: var(--red-700);
+    color: var(--neutral-0);
+    border: var(--border);
+}
+
+#extension-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 0.6rem;
+}
+
+.grid {
+    background: var(--neutral-0);
+    padding: 1rem;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+}
+
+.grid #top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 1.8rem;
+}
+
+.grid p{
+    margin-top: 0.5rem ;
+}
+
+.grid .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* toggle */
+
+.cardToggle{
+    display: none;
+}
+
+.toggle{
+    width: 50px;
+    height: 26px;
+    background: #ccc;
+    border-radius: 15px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.toggle::after{
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+.cardToggle:checked + .toggle::after{
+    transform: translateX(24px);
+}
+
+.cardToggle:checked + .toggle{
+    background: var(--red-500);
+}
+
+@media (max-width: 600px) {
+    .container {
+        text-align: center;
+    }
+
+    .extension-header {
+        display: block;
+    }
+
+    .extension-header h1 {
+        margin-bottom: 10px;
+    }
+
+    #extension-grid {
+        grid-template-columns: 1fr;
+
+    }
+
+    .grid {
+        margin: 0 auto;
+    }
+}
